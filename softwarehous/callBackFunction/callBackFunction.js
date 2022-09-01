@@ -1,39 +1,29 @@
-function myDisplayer(some) {
-    console.log(some);
-  }
-  
-  function myFirst() {
-    myDisplayer("Hello");
-  }
-  
-  function mySecond() {
-    myDisplayer("Goodbye");
-  }
-  
-  mySecond();
-  myFirst();
-//   the first result should be Goodbye
-//   the second result should be Hello
+// const date=new Date();
 
-// these are the callback functions 
-// the execution of a function does not depends on the place where it is defined rahter than on the place where it is going to be called 
+const p=document.getElementById("para");
 
-// settimeout is the best example of callback function 
-const date=new Date();
-console.log(date);
-function currentDate(){
-    setTimeout(()=>{
-       console.log(date.getHours(),":",date.getMinutes(),":",date.getSeconds());
-       document.body.append(date.getHours(),":",date.getMinutes(),":",date.getSeconds());
-    currentDate()
-   },1000)
+// today();
+// function today(){
+//     setTimeout(()=>{
+//         p.innerText=`${date.getSeconds()}`
+//         console.log(`${date.getSeconds()}`);
+//         // today()
+//     },1000)
+// }
+
+function today2(){
+    p.innerText=`${date.getSeconds()}`
+
 }
-// currentDate()
-function currentDate2(){
-    console.log(date.getHours(),":",date.getMinutes(),":",date.getSeconds());
-    setTimeout(()=>{
-        currentDate2()
-    
+setTimeout(()=>{
+    today2()
+},1000)
+let date = document.getElementById("date");
+console.log(date);
+function clock(time) {
+    date.innerText = time;
+    setTimeout(function (){
+        clock(new Date())
     },1000)
 }
-// currentDate2()
+clock(new Date())
