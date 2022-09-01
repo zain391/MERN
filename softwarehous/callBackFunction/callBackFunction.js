@@ -20,9 +20,20 @@ function myDisplayer(some) {
 
 // settimeout is the best example of callback function 
 const date=new Date();
+console.log(date);
 function currentDate(){
-    console.log(date.getHours,":",date.getSeconds,":");
-    // setTimeout(() => {
-    //     currentDate()
-    // }, 1000);
+    setTimeout(()=>{
+       console.log(date.getHours(),":",date.getMinutes(),":",date.getSeconds());
+       document.body.append(date.getHours(),":",date.getMinutes(),":",date.getSeconds());
+    currentDate()
+   },1000)
 }
+// currentDate()
+function currentDate2(){
+    console.log(date.getHours(),":",date.getMinutes(),":",date.getSeconds());
+    setTimeout(()=>{
+        currentDate2()
+    
+    },1000)
+}
+// currentDate2()
