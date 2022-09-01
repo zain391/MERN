@@ -8,9 +8,13 @@
 function firstFun(a){
     const b=67;
     function firstInnerFun(){
+        console.log("firstInnerFun is working");
         let sum =a+b;
         console.log(sum);
     }
-    firstInnerFun()
+    return firstInnerFun;
+    // firstInnerFun()
 }
-firstFun(23)
+let inner=firstFun(23)
+console.dir(inner);
+inner()
