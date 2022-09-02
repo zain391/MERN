@@ -12,19 +12,25 @@ import './App.css';
 function App() {
   const [studentsArray,setstudentsArray]=useState(Stud)
   const [studentData , setStudentData]=useState({
-    stdName:"zain",
-        rollNo:"bsf1902349",
-        classname:"BS IT",
-        batch:"7th"
+    stdName:"",
+        rollNo:"",
+        classname:"",
+        batch:""
   })
 const inputVal=(e)=>{
   // console.log(e.target.value);
   console.log(e.target.value);
+  // let obj={
+  //   stdName:studentData.stdName,
+  //       rollNo:studentData.rollNo,
+  //       classname:studentData.classname,
+  //       batch:studentData.batch
+  // }
   let obj={
-    stdName:studentData.stdName,
-        rollNo:studentData.rollNo,
-        classname:studentData.classname,
-        batch:studentData.batch
+        stdName:e.target.value,
+        rollNo:e.target.value,
+        classname:e.target.value,
+        batch:e.target.value
   }
   console.log(obj," i am obj of input ");
   setStudentData(obj)
@@ -36,10 +42,11 @@ const addToArray=()=>{
         classname:studentData.classname,
         batch:studentData.batch
   }
-  console.log(obj," i am obj of addIntodo array");
+  // console.log(obj," i am obj of addIntodo array");
   setstudentsArray((newStd)=>{
     return [...newStd,obj]
-  })
+  });
+  console.log(studentsArray," i am studentsArray of addIntodo array");
 }
   return (
     <div className="App">
