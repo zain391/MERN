@@ -2,47 +2,43 @@ import React, { useState } from 'react';
 import './App.css';
 import TodoLsit from './todoList';
 function App() {
-  const [inputVal, setInputVal]= useState("");
-  const [todoArray,setTodoArray]=useState([]);
-  const inputChange=(e)=>{
-    setInputVal(e.target.value)
+  const [inputVal, setinputVal]=useState("");
+  const [todoArray,settodoArray]=useState([]);
+  const inputValFun=(e)=>{
+    setinputVal(e.target.value);
+    console.log(inputVal);
   }
-  const addToArray=()=>{
-    setTodoArray((oldItem)=>{
-      return [...oldItem,inputVal]
-    }
-    );      
+  const addToArrayFun=()=>{
+    settodoArray((todoArrays)=>{
+      return [...todoArrays,inputVal];
+    });
+    // setinputVal("")
+    console.log(todoArray);
   }
-  const removeItem=(id)=>{
-    setTodoArray((oldItem)=>{
-      return oldItem.filter((items,index)=>{
-        return index !=id;
+  const removeBtnFun=(key)=>{
+    settodoArray((todoArrays)=>{
+      return todoArrays.filter((items,index)=>{
+        return index !==  key;
       })
-    })
+    });
   }
   return (
     <div className="App">
-     <h1>todo app</h1>
-     <input type="text" placeholder='enter a todo' onChange={inputChange}/>
-     <button onClick={addToArray}>add todo</button>
+    <h1>Todo List </h1>
+     <input type="text" placeholder='Enter todo item' onChange={inputValFun}/>
+     <button onClick={addToArrayFun}>Add Todo</button>
      <br />
-     
-      <ol>
-       {
-       todoArray.map((item,index)=>{
-       return <TodoLsit
-        text={item}
-        key={Math.random().toString(16).slice(2)}
-        id={index}
-        removeItemFun={removeItem}
-        /> 
-        
-      })
-       }
-      </ol>
-     
+     <ol> {todoArray.map((items,index)=>{ 
+     return <TodoLsit 
+     text={items}
+     key={index} 
+     id={Math.random().toString(32).slice(2)}
+     removeBtn={removeBtnFun}
+     />
+      })} </ol>
     </div>
   );
+
 }
 
 export default App;

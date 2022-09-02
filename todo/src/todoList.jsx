@@ -1,10 +1,8 @@
 import React from "react"
 const TodoLsit=(props)=>{
     return <>
-    <button onClick={()=>{
-        props.removeItemFun(props.id)
-    }}>
-        remove</button>
+    <br />
+    <button onClick={()=>{props.removeBtn(props.key)}}>remove item</button>
     <li>{props.text}</li>
     </>
 }
