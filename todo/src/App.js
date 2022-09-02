@@ -11,28 +11,25 @@ import { Stud } from './studentsTodo/Students';
 import './App.css';
 function App() {
   const [studentsArray,setstudentsArray]=useState(Stud)
-  const [stdName , setstdName]=useState("")
-  const [rollNo , setrollNo]=useState("")
-  const [classname , setclassname]=useState("")
-  const [batch , setbatch]=useState("")
+  const [stdObj ,setstdObj]=useState({
+    stdName:"",
+    rollNo:"",
+    classname:"",
+    batch:""
+  })
  
-const inputnameVal=(e)=>{
-  setstdName(e.target.value)
-}
-const inputrollNoVal=(e)=>{
-  setrollNo(e.target.value)
-}
-const inputclassnameVal=(e)=>{
-  setclassname(e.target.value)
-}
-const inputbatchVal=(e)=>{
-  setbatch(e.target.value)
+const inputVal=(e)=>{
+ placeholder= e.target.placeholder;
+ value=e.target.value;
+ setstdObj({...stdObj,[placeholder]:value})
 }
 const addToArray=()=>{
 
 }
   return (
     <div className="App">
+      
+      
       <Input  place="stdName "    fun={inputVal}/>
       <Input  place="rollNo"      fun={inputVal}/>
       <Input  place="classname "  fun={inputVal}/>
