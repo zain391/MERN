@@ -9,36 +9,28 @@ function StudentTable() {
         <table className="table table-striped">
   <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
+      <th scope="col">Sr.No</th>
+      <th scope="col">Name</th>
+      <th scope="col">Roll NO </th>
+      <th scope="col">className</th>
+      <th scope="col">Batch</th>
     </tr>
   </thead>
   <tbody>
-    {/* <tr>
-      <th scope="row">1</th>
-      {Students.map((item)=>{
-        return <><td>{item.stdName}</td>
+    {
+      Stud.map((item,index)=>{
+        return <>
+       <tr>
+       <th scope="row">{index}</th>
+        <td>{item.stdName}</td>
         <td>{item.rollNo}</td>
         <td>{item.classname}</td>
-        <td>{item.batch}</td>
-      
+        <td>{item.batch}</td>      
+       </tr>
         </>
-      })}
-    </tr> */}
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
+      })
+    }
+    
   </tbody>
 </table>
     </div>
