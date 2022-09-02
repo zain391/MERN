@@ -11,42 +11,25 @@ import { Stud } from './studentsTodo/Students';
 import './App.css';
 function App() {
   const [studentsArray,setstudentsArray]=useState(Stud)
-  const [studentData , setStudentData]=useState({
-    stdName:"",
-        rollNo:"",
-        classname:"",
-        batch:""
-  })
-const inputVal=(e)=>{
-  // console.log(e.target.value);
-  console.log(e.target.value);
-  // let obj={
-  //   stdName:studentData.stdName,
-  //       rollNo:studentData.rollNo,
-  //       classname:studentData.classname,
-  //       batch:studentData.batch
-  // }
-  let obj={
-        stdName:e.target.value,
-        rollNo:e.target.value,
-        classname:e.target.value,
-        batch:e.target.value
-  }
-  console.log(obj," i am obj of input ");
-  setStudentData(obj)
+  const [stdName , setstdName]=useState("")
+  const [rollNo , setrollNo]=useState("")
+  const [classname , setclassname]=useState("")
+  const [batch , setbatch]=useState("")
+ 
+const inputnameVal=(e)=>{
+  setstdName(e.target.value)
+}
+const inputrollNoVal=(e)=>{
+  setrollNo(e.target.value)
+}
+const inputclassnameVal=(e)=>{
+  setclassname(e.target.value)
+}
+const inputbatchVal=(e)=>{
+  setbatch(e.target.value)
 }
 const addToArray=()=>{
-  let obj={
-    stdName:studentData.stdName,
-        rollNo:studentData.rollNo,
-        classname:studentData.classname,
-        batch:studentData.batch
-  }
-  // console.log(obj," i am obj of addIntodo array");
-  setstudentsArray((newStd)=>{
-    return [...newStd,obj]
-  });
-  console.log(studentsArray," i am studentsArray of addIntodo array");
+
 }
   return (
     <div className="App">
