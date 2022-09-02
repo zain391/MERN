@@ -1,7 +1,10 @@
 import React from 'react'
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css'
+import {Stud} from '../Students'
 function StudentTable() {
+  console.log(Stud);
   return (
+  
     <div className='container'>
         <table className="table table-striped">
   <thead>
@@ -13,12 +16,17 @@ function StudentTable() {
     </tr>
   </thead>
   <tbody>
-    <tr>
+    {/* <tr>
       <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
+      {Students.map((item)=>{
+        return <><td>{item.stdName}</td>
+        <td>{item.rollNo}</td>
+        <td>{item.classname}</td>
+        <td>{item.batch}</td>
+      
+        </>
+      })}
+    </tr> */}
     <tr>
       <th scope="row">2</th>
       <td>Jacob</td>

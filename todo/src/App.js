@@ -13,17 +13,25 @@ function App() {
   const [studentsArray,setstudentsArray]=useState([])
   // const [studentData , setStudentData]=useState()
 const inputVal=(e)=>{
-  console.log(e.target.value);
+  // console.log(e.target.value);
+  console.log(e.target.placeholder);
+//   const Stud={
+//     stdName:e.target.placeholder,
+//     rollNo:e.target.placeholder,
+//     classname:e.target.placeholder,
+//     batch:e.target.placeholder
+// }
+// console.log(Stud);
 }
 const addToArray=()=>{
 
 }
   return (
     <div className="App">
-      <Input  place="enter stdName "  fun={inputVal}/>
-      <Input  place="enter rollNo" fun={inputVal}/>
-      <Input  place="enter classname " fun={inputVal}/>
-      <Input  place="enter batch"  fun={inputVal}/>
+      <Input  place="stdName "  fun={inputVal}/>
+      <Input  place="rollNo" fun={inputVal}/>
+      <Input  place="classname " fun={inputVal}/>
+      <Input  place="batch"  fun={inputVal}/>
       <button onClick={addToArray}>Add </button>
       <StudentTable/>
     </div>
