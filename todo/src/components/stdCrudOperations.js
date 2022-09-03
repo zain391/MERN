@@ -33,7 +33,15 @@ const ctaHandler=()=>{
     setstdClass("")
     setstdBatch("")
 }
-
+const ctaDeleteHandler=(index)=>{
+  const newStdAfterDel=stdArray.filter((student,ind)=>{
+    if(index != ind){
+      return student
+    }
+  })
+  setstdArray(newStdAfterDel);
+  
+}
   
     return (
     <div>
@@ -44,7 +52,7 @@ const ctaHandler=()=>{
             {
               flag ? <button>update</button> :<button onClick={ctaHandler}>add</button> 
             }
-            <StdList stdArray={stdArray}/>
+            <StdList stdArray={stdArray} ctaDeleteHandler={ctaDeleteHandler}/>
     </div>
   )
 }

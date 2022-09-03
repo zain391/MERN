@@ -1,6 +1,6 @@
 import React from 'react'
 import "../../node_modules/bootstrap/dist/css/bootstrap.min.css"
-function StdList({stdArray}) {
+function StdList({stdArray,ctaDeleteHandler}) {
   return (
     <div className='container'>
         <table className="table">
@@ -22,7 +22,9 @@ function StdList({stdArray}) {
             <td>{students.stdRoll}</td>
             <td>{students.stdClass}</td>
             <td>{students.stdBatch}</td>
-            <td><button className='btn btn-danger'>delete</button></td>
+            <td><button className='btn btn-danger' onClick={()=>{
+                ctaDeleteHandler(index+1)
+            }}>delete</button></td>
             <td><button className='btn btn-info'>update</button></td>
           </tr>
         })
