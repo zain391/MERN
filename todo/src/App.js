@@ -22,11 +22,23 @@ const addtoStdArray=()=>{
   console.log(stdObjArray); 
 }
 const delBtnhandler=(index)=>{
-  stdObjArray.filter((items,ind)=>{
-    if(ind != index){
-      // setstdObjArray(items)
+  let newStdAfterDel=stdObjArray.filter((students,ind)=>{
+    if(index !== ind){
+      console.log(students);
+      return students;
     }
   })
+  setstdObjArray([...newStdAfterDel])
+
+ 
+ 
+  // stdObjArray.filter((items,ind)=>{
+  //   if(ind != index){
+  //     setstdObjArray((delArrayItems)=>{
+  //       return [...items]
+  //     })
+  //   }
+  // })
 
 }
 
