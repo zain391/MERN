@@ -1,60 +1,103 @@
 import React, { useState } from 'react';
-import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
-import Input from './components/input/input';
 import "./App.css"
-import {StdData} from "../src/components/data/stdData"
-import ListStd from './components/listStd/ListStd';
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
+import { Data } from "../src/components/stdData/data"
+import StdList from './components/stdList/StdList';
 function App() {
-  const [stdObj, setstdObj]=useState({});
-  const [stdObjArray, setstdObjArray]=useState(StdData);
+  console.log(Data);
+  const [stdDataArray, setstdData] = useState(Data)
+  const [stdName, setstdName] = useState("")
+  const [stdRoll, setstdRoll] = useState("")
+  const [stdClass, setstdClass] = useState("")
+  const [stdbatch, setstdbatch] = useState("")
+  const [flag, setFlag] = useState(false);
+  const [updatedIndex, setUpdatedIndex] = useState(0)
 
-const inputHandler=(e)=>{
-  const namee=e.target.name;
-  const value=e.target.value;
-  setstdObj({...stdObj,[namee]:value})
-}
-
-
-const addtoStdArray=()=>{
-  setstdObjArray((finalStdArray)=>{
-    return [...finalStdArray,stdObj]
-  });
-  console.log(stdObjArray); 
-}
-
-
-
-const delBtnhandler=(index)=>{
-  let newStdAfterDel=stdObjArray.filter((students,ind)=>{
-    if(index !== ind){
-      // console.log(students);
-      return students;
+  const ctaHAndler = () => {
+    if (stdName !== "" && stdRoll !== "" && stdClass !== "" && stdbatch !== "") {
+      let obj = {
+        stdName,
+        stdRoll,
+        stdClass,
+        stdbatch
+      }
+      setstdData([...stdDataArray, obj])
+      setstdName("");
+      setstdRoll("");
+      setstdClass("");
+      setstdbatch("");
     }
-  })
-  setstdObjArray([...newStdAfterDel])
-}
-
-
-
-const updateBtnhandler=(index)=>{
-  stdObjArray.map((students,ind)=>{
-    if(index == ind){
-      
-      
-      return students;
+    else {
+      alert()
     }
-  })
-  // setstdObjArray([...newStdAfterDel])
-}
+  }
+  const deleteHandler = (index) => {
+    console.log(index);
+    let newStdArray = stdDataArray.filter((student, ind) => {
+      if (index !== ind) {
+        return student
+      }
+    })
+    setstdData([...newStdArray])
+  }
+  // const updateHandler = (students, index) => {
+  //   setUpdatedIndex(index);
+  //   setstdName(students.name);
+  //   setstdRoll(students.class);
+  //   setstdClass(students.roll);
+  //   setstdbatch(students.batch);
+  // }
+  const ctaUpdateHandler = (students, index) => {
+    // setMessage("")
+    setUpdatedIndex(index);
+    setstdName(students.name);
+    setstdRoll(students.class);
+    setstdClass(students.roll);
+    setstdbatch(students.batch);
+    if (stdName !== "" && stdRoll !== "" && stdClass !== "" && stdbatch !== "") {
+      let student = {
+        stdName,
+        stdbatch,
+        stdRoll,
+        stdClass,
+      }
+      console.log("student", student);
 
+      let updateStudents = stdDataArray.map((stu, index) => {
+        if (updatedIndex === index) {
+          return student
+
+        }
+        else {
+          return stu;
+        }
+      })
+
+      setstdData([...updateStudents]);
+      setstdName("");
+      setstdRoll("");
+      setstdClass("");
+      setstdbatch("");
+      setFlag(false);
+
+    }
+    else {
+      // setMessage(" Found few of params empty! Params can't be empty.")
+      alert()
+    }
+  }
   return (
     <div className="App">
-      <Input palce="enter stdName" name="stdName" fun={inputHandler}/>
-      <Input palce="enter stdName" name="rollNo" fun={inputHandler}/>
-      <Input palce="enter stdName" name="className" fun={inputHandler}/>
-      <Input palce="enter stdName" name="batch" fun={inputHandler}/>
-    <button className='btn btn-success' onClick={addtoStdArray}>Add</button>
-    <ListStd stdData={stdObjArray} delBtnhandler={delBtnhandler} updateBtnhandler={updateBtnhandler}/>
+      <input type="text" name='stdName' placeholder='stdName' onChange={(e) => { setstdName(e.target.value) }} value={stdName} />
+      <input type="text" name='stdRoll' placeholder='stdRoll' onChange={(e) => { setstdRoll(e.target.value) }} value={stdRoll} />
+      <input type="text" name='stdClass' placeholder='stdClass' onChange={(e) => { setstdClass(e.target.value) }} value={stdClass} />
+      <input type="text" name='stdbatch' placeholder='stdbatch' onChange={(e) => { setstdbatch(e.target.value) }} value={stdbatch} />
+      {/* {flag ?
+        <button onClick={ctaUpdateHandler}>CTAupdate</button>
+        :
+        <button onClick={ctaHAndler}>Add</button>
+      } */}
+      <StdList stdDataArray={stdDataArray} deleteHandl={deleteHandler} updateHandler={ctaUpdateHandler} />
     </div>
   );
 
