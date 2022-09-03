@@ -1,7 +1,7 @@
 import React from 'react'
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import {Stud} from '../Students'
-function StudentTable() {
+function StudentTable(props) {
   console.log(Stud);
   return (
   
@@ -18,7 +18,7 @@ function StudentTable() {
   </thead>
   <tbody>
     {
-      Stud.map((item,index)=>{
+      props.finalStdArray.map((item,index)=>{
         return <>
        <tr>
        <th scope="row">{index}</th>
