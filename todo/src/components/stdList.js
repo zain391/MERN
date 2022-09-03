@@ -1,6 +1,6 @@
 import React from 'react'
 import "../../node_modules/bootstrap/dist/css/bootstrap.min.css"
-function StdList({stdArray,ctaDeleteHandler}) {
+function StdList({stdArray,ctaDeleteHandler,updatehandler}) {
   return (
     <div className='container'>
         <table className="table">
@@ -17,15 +17,17 @@ function StdList({stdArray,ctaDeleteHandler}) {
     {
         stdArray.map((students,index )=>{
             return  <tr>
-            <th scope="row">{index+1}</th>
+            <th scope="row">{index}</th>
             <td>{students.stdName}</td>
             <td>{students.stdRoll}</td>
             <td>{students.stdClass}</td>
             <td>{students.stdBatch}</td>
+            
             <td><button className='btn btn-danger' onClick={()=>{
                 ctaDeleteHandler(index+1)
             }}>delete</button></td>
-            <td><button className='btn btn-info'>update</button></td>
+
+            <td><button className='btn btn-info' onClick={()=>{updatehandler(students,index)}}>update</button></td>
           </tr>
         })
     }
