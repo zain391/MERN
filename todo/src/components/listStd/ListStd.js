@@ -28,7 +28,9 @@ function ListStd(props) {
                                     <td><button className='btn btn-danger' onClick={()=>{
                                         props.delBtnhandler(index)
                                     }}>delete</button></td>
-                                    <td><button className='btn btn-info'>update</button></td>
+                                    <td><button className='btn btn-info' onClick={()=>{
+                                        props.updateBtnhandler(index)
+                                    }}>update</button></td>
                                 </tr>
                             </>
                         })
