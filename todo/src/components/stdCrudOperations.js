@@ -15,6 +15,25 @@ function StdCrudOperations() {
   //   stdClass,
   //   stdBatch
   // }
+const ctaHandler=()=>{
+  if(stdName !=="" && stdRoll !== "" && stdClass !=="" && stdBatch ){
+     let newStd={
+    stdName,
+    stdRoll,
+    stdClass,
+    stdBatch
+  }
+  setstdArray([...stdArray,newStd])
+  }
+  else{
+    alert()
+  }
+    setstdName("")
+    setstdRoll("")
+    setstdClass("")
+    setstdBatch("")
+}
+
   
     return (
     <div>
@@ -23,7 +42,7 @@ function StdCrudOperations() {
         <input type="text" placeholder='stdClass' onChange={(e)=>{setstdClass(e.target.value)}} value={stdClass} name='stdClass'/>
         <input type="text" placeholder='stdBatch' onChange={(e)=>{setstdBatch(e.target.value)}} value={stdBatch} name='stdBatch'/>
             {
-              flag ? <button>update</button> :<button>add</button> 
+              flag ? <button>update</button> :<button onClick={ctaHandler}>add</button> 
             }
             <StdList stdArray={stdArray}/>
     </div>

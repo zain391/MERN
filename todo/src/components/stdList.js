@@ -22,6 +22,8 @@ function StdList({stdArray}) {
             <td>{students.stdRoll}</td>
             <td>{students.stdClass}</td>
             <td>{students.stdBatch}</td>
+            <td><button className='btn btn-danger'>delete</button></td>
+            <td><button className='btn btn-info'>update</button></td>
           </tr>
         })
     }
