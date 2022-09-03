@@ -1,6 +1,7 @@
 import React ,{useState}from 'react'
 import {Data} from "./stdData"
 import StdList from './stdList'
+import "../../node_modules/bootstrap/dist/css/bootstrap.min.css"
 function StdCrudOperations() {
   const [stdArray,setstdArray]=useState(Data)
   const [flag,setflag]=useState(false)
@@ -18,7 +19,6 @@ function StdCrudOperations() {
      stdClass,
      stdBatch
    }
-   console.log(newStd);
   let updateStudents=stdArray.map((students,index)=>{
     if(indexupdate === index){
       return newStd
@@ -28,7 +28,6 @@ function StdCrudOperations() {
     }
   });
   setstdArray([...updateStudents]);
-  // console.log();
   setstdName("")
   setstdRoll("")
   setstdClass("")
@@ -40,15 +39,6 @@ function StdCrudOperations() {
   }
 }
 
-
-
-
-  // let obj={
-  //   stdName,
-  //   stdRoll,
-  //   stdClass,
-  //   stdBatch
-  // }
 const ctaHandler=()=>{
   if(stdName !=="" && stdRoll !== "" && stdClass !=="" && stdBatch ){
      let newStd={
@@ -93,7 +83,7 @@ const updatehandler=(students,index)=>{
         <input type="text" placeholder='stdClass' onChange={(e)=>{setstdClass(e.target.value)}} value={stdClass} name='stdClass'/>
         <input type="text" placeholder='stdBatch' onChange={(e)=>{setstdBatch(e.target.value)}} value={stdBatch} name='stdBatch'/>
             {
-              flag ? <button onClick={ctaupdatehandler}>update</button> :<button onClick={ctaHandler}>add</button> 
+              flag ? <button onClick={ctaupdatehandler} className="btn btn-info">update</button> :<button onClick={ctaHandler} className="btn btn-success">add</button> 
             }
             <StdList stdArray={stdArray} ctaDeleteHandler={ctaDeleteHandler} updatehandler={updatehandler}/>
     </div>

@@ -24,7 +24,7 @@ function StdList({stdArray,ctaDeleteHandler,updatehandler}) {
             <td>{students.stdBatch}</td>
             
             <td><button className='btn btn-danger' onClick={()=>{
-                ctaDeleteHandler(index+1)
+                ctaDeleteHandler(index)
             }}>delete</button></td>
 
             <td><button className='btn btn-info' onClick={()=>{updatehandler(students,index)}}>update</button></td>
