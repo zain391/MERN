@@ -4,22 +4,38 @@ import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css"
 import { Outlet, Link } from "react-router-dom"
 function Home(params) {
     const [products] = HomeCustomHooks()
-   
+    console.log(products);
     return (
         <div className='container'>
-            <div>
-                {products.map((item)=>{
-                    console.log(item.title);
-                })}
-            </div>
+            {
+                 products.map((items, index) => {
+                        return <>
+                            <div className="card" style="width: 18rem;">
+                                <img className="card-img-top" src={items.image} alt={items.title} />
+                                <div className="card-body">
+                                    <h5 className="card-title">{items.title}</h5>
+                                    <p className="card-text">{items.description}</p>
+                                    <a href="#" className="btn btn-primary">Go somewhere</a>
+                                </div>
+                            </div>
+                        </>
+                    })
+                    
+            }
         </div>
     )
 }
-
-{/* <img className="card-img-top" src={produstItems.image} alt="Card image cap"/>
-                                <div className="card-body">
-                                    <h5 className="card-title">{produstItems.title}</h5>
-                                    <p className="card-text">{produstItems.description</p>
-                                    <a href="#" className="btn btn-primary">Go somewhere</a> */}
+// products.map((items, index) => {
+//     return <>
+//         <div className="card" style="width: 18rem;">
+//             <img className="card-img-top" src={items.image} alt={items.title} />
+//             <div className="card-body">
+//                 <h5 className="card-title">{items.title}</h5>
+//                 <p className="card-text">{items.description}</p>
+//                 <a href="#" className="btn btn-primary">Go somewhere</a>
+//             </div>
+//         </div>
+//     </>
+// })
 
 export default Home
