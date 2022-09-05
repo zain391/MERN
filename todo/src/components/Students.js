@@ -1,23 +1,23 @@
 import React from 'react'
-
+import StudentCustomHook from './StudentCustomHook'
 function Students() {
+    const [flag,stdName,stdRoll,stdClass,stdBatch,stdObj,stdObjArray,setstdName,setstdRoll,setstdClass,setstdBatch,setstdObj,ctaHandler]=StudentCustomHook();
   return (
     <div>
-        <input type="text" placeholder='enter stdName' name='stdName' onChange={(e)=>{setstdName(e.target.value)
+        <input type="text" placeholder='enter stdName' value={stdName}  name='stdName' onChange={(e)=>{setstdName(e.target.value)
 
         }}/>
-        <input type="text" placeholder='enter stdRoll' name='stdName' onChange={(e)=>{setstdRoll(e.target.value)
+        <input type="text" placeholder='enter stdRoll' value={stdRoll} name='stdName' onChange={(e)=>{setstdRoll(e.target.value)
 
         }}/>
-        <input type="text" placeholder='enter stdClass' name='stdName' onChange={(e)=>{setstdClass(e.target.value)
+        <input type="text" placeholder='enter stdClass' value={stdClass} name='stdName' onChange={(e)=>{setstdClass(e.target.value)}}/>
+        
+        <input type="text" placeholder='enter stdBatch' value={stdBatch} name='stdName' onChange={(e)=>{setstdBatch(e.target.value)
 
         }}/>
-        <input type="text" placeholder='enter stdBatch' name='stdName' onChange={(e)=>{setstdBatch(e.target.value)
-
-        }}/>
-        <button className='btn btn-success'>Add</button>
+        
         {
-            flag ? <button>update</button> :<button>Add</button>
+            flag ? <button>update</button>: <button className='btn btn-success' onClick={ctaHandler}>Add</button> 
         }
     </div>
   )
