@@ -1,9 +1,9 @@
 import React from 'react'
 import "../../node_modules/bootstrap/dist/css/bootstrap.min.css"
-function ListingStudents({stdObjArray}) {
+function ListingStudents({stdObjArray,ctaDeleteHandler}) {
   return (
     <div className='container'>
-        <table class="table">
+        <table className="table">
   <thead>
     <tr>
       <th scope="col">#</th>
@@ -22,7 +22,7 @@ function ListingStudents({stdObjArray}) {
             <td>{students.stdRoll}</td>
             <td>{students.stdClass}</td>
             <td>{students.stdBatch}</td>
-            <td><button className='btn btn-danger'>delete</button></td>
+            <td><button className='btn btn-danger' onClick={()=>{ctaDeleteHandler(index)}}>delete</button></td>
             <td><button className='btn btn-info'>update</button></td>
            
           </tr>

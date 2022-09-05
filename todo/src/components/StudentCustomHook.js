@@ -3,6 +3,7 @@ import {StdData} from "./StudentData"
 function StudentCustomHook() {
 
     const [flag ,setflag]=useState(false)
+    const [selectedIndex ,setselectedIndex]=useState(0)
     const [stdName ,setstdName]=useState("")
     const [stdRoll ,setstdRoll]=useState("")
     const [stdClass ,setstdClass]=useState("")
@@ -22,7 +23,18 @@ function StudentCustomHook() {
         setstdObj("")
         setstdRoll("")
     }
-  return [flag,stdName,stdRoll,stdClass,stdBatch,stdObj,stdObjArray,setstdName,setstdRoll,setstdClass,setstdBatch,setstdObj,ctaHandler]
+    const ctaDeleteHandler=(index)=>{
+        console.log(index);
+       let stdAafterDel= stdObjArray.filter((Student,ind)=>{
+            if(index == ind){
+                console.log(ind);
+                return Student
+            }
+           
+        })
+        setstdObjArray([...stdAafterDel]);
+    }
+  return [flag,stdName,stdRoll,stdClass,stdBatch,stdObj,stdObjArray,setstdName,setstdRoll,setstdClass,setstdBatch,setstdObj,ctaHandler,ctaDeleteHandler]
 }
 
 export default StudentCustomHook
