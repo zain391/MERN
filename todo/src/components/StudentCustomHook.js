@@ -20,9 +20,11 @@ function StudentCustomHook() {
         setstdObjArray([...stdObjArray,obj]);
         setstdClass("")
         setstdBatch("")
-        setstdObj("")
+        setstdName("")
         setstdRoll("")
     }
+    
+    
     const ctaDeleteHandler=(index)=>{
         console.log(index);
        let stdAafterDel= stdObjArray.filter((Student,ind)=>{
@@ -34,7 +36,52 @@ function StudentCustomHook() {
         })
         setstdObjArray([...stdAafterDel]);
     }
-  return [flag,stdName,stdRoll,stdClass,stdBatch,stdObj,stdObjArray,setstdName,setstdRoll,setstdClass,setstdBatch,setstdObj,ctaHandler,ctaDeleteHandler]
+
+    const updatehandler=(students,index)=>{
+        console.log(students);
+        console.log("updatehandler");
+        setselectedIndex(index);
+        stdObjArray.map((students,ind)=>{
+            if(index == ind){
+                setstdClass(students.stdName)
+        setstdBatch(students.stdBatch)
+        setstdName(students.stdName)
+        setstdRoll(students.stdRoll) 
+            }
+            setflag(true)
+        })  
+    }
+
+
+    const ctaupdatehandler=()=>{ 
+        console.log("i am working");
+        let obj={
+            stdName,
+            stdRoll,
+            stdClass,
+            stdBatch
+        }
+        console.log("obj",obj);
+        const updatedStdArray=stdObjArray.map((student,index)=>{
+            if(index ==selectedIndex){
+                console.log(obj);
+                return obj    
+            }
+            else{
+                return student
+            }
+        })
+        console.log(updatedStdArray);
+        setstdObjArray([...updatedStdArray]);
+        setstdClass("")
+        setstdBatch("")
+        setstdName("")
+        setstdRoll("")
+        setflag(false)
+    }
+
+
+  return [flag,stdName,stdRoll,stdClass,stdBatch,stdObj,stdObjArray,setstdName,setstdRoll,setstdClass,setstdBatch,setstdObj,ctaHandler,ctaDeleteHandler,updatehandler,ctaupdatehandler]
 }
 
 export default StudentCustomHook
