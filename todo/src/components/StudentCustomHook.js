@@ -16,7 +16,11 @@ function StudentCustomHook() {
             stdClass,
             stdBatch
         }
-        setstdObjArray([...stdObjArray,obj])
+        setstdObjArray([...stdObjArray,obj]);
+        setstdClass("")
+        setstdBatch("")
+        setstdObj("")
+        setstdRoll("")
     }
   return [flag,stdName,stdRoll,stdClass,stdBatch,stdObj,stdObjArray,setstdName,setstdRoll,setstdClass,setstdBatch,setstdObj,ctaHandler]
 }
