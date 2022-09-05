@@ -21,3 +21,4 @@ const arr=[1,2,3]
 for(let z of arr){
     console.log(`i am working`);
 }
+console.log(Math.random().toString());
