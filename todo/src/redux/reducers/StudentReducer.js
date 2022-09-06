@@ -21,7 +21,14 @@ function StudentReducer(state = initialState, action) {
     switch(action.type){
         case "ADD_STUDENT":
             // all the logic will be here 
-            return state
+            let newStateAfterActionHappens={
+                ...state,
+                // we might had chaged the id or added new attribute in the state and added it in the newstate
+                id:Math.random().toString(32).slice(2),
+                // we might also get some new data from the action (action.payload)
+                newData:action.payload
+            }
+            return newStateAfterActionHappens
         default:
            return   state    
     }
