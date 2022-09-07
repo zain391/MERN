@@ -1,15 +1,26 @@
-const data=fetch('https://fakestoreapi.com/products').then(res=>res.json()).then(json=>console.log(json))
-
-let prom=new Promise((resolve,reject)=>{
+const data=[{
+    messsage:"i have came to visit you "
+}]
+const promise1=new Promise((resolve,reject)=>{
     if(data){
-        // console.log(data);
-        resolve(data);
+        resolve(data[0].messsage)
     }
     else{
-        reject("error")
+        reject("there was an error")
     }
-})  
-prom.then((data)=>console.log(data,"data")).catch((error)=>console.log(error,"error"))     
-// console.log(typeof prom,"typeof prom");
+})
+promise1.then(response=>console.log("response :",response)).then(afterThat=>console.log("we will go outside"))
 
+fetch('https://fakestoreapi.com/products')
+            .then(res=>console.log(res.json(),"response.json"))
+            // .then(json=>console.log(json))
+console.log(JSON.stringify(data));
 
+const fetchdata=fetch('https://fakestoreapi.com/products').then(res=>res.json()).then(json=>console.log(json))
+async function gettingData(){
+    const respone=await fetch('https://fakestoreapi.com/products');
+    const realData=await respone.json();
+    console.log(realData,"realData");
+}
+gettingData()
+// console.log(gettingData());
