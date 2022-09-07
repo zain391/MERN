@@ -26,10 +26,8 @@ function StudentCustomHook() {
     
     
     const ctaDeleteHandler=(index)=>{
-        console.log(index);
        let stdAafterDel= stdObjArray.filter((Student,ind)=>{
-            if(index == ind){
-                console.log(ind);
+            if(index !== ind){
                 return Student
             }
            
@@ -38,8 +36,7 @@ function StudentCustomHook() {
     }
 
     const updatehandler=(students,index)=>{
-        console.log(students);
-        console.log("updatehandler");
+       
         setselectedIndex(index);
         stdObjArray.map((students,ind)=>{
             if(index == ind){
@@ -54,24 +51,20 @@ function StudentCustomHook() {
 
 
     const ctaupdatehandler=()=>{ 
-        console.log("i am working");
         let obj={
             stdName,
             stdRoll,
             stdClass,
             stdBatch
         }
-        console.log("obj",obj);
         const updatedStdArray=stdObjArray.map((student,index)=>{
             if(index ==selectedIndex){
-                console.log(obj);
                 return obj    
             }
             else{
                 return student
             }
         })
-        console.log(updatedStdArray);
         setstdObjArray([...updatedStdArray]);
         setstdClass("")
         setstdBatch("")

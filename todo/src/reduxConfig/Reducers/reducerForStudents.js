@@ -1,31 +1,18 @@
-import React from 'react'
-
-
-
 let initialState = {
-    isLogIn: true,
-    user:{userName:"zain",email:"zain356@gmail.com"}
+    stdName: "random1",
+    stdRoll: "123",
+    stdClass: "Class 1",
+    stdBatch: "7th"
 }
-function Authreducer(state = initialState, action) {
-    // return (
-    //     <div>StudentReducer</div>
-    // )
-
-    // first      
-    // switch(action){
-    //     case value:
-    //         break;
-    //     default:
-    //         state    
-    // }
-
+function reducerForStudents(state = initialState, action) {   
     switch(action.type){
-        case "ISLOGIN":
+        case "ADD_STUDENT":
+            console.log("data in std reducer from action ",action.payload);
             // all the logic will be here 
             let newStateAfterActionHappens={
-                ...state,
+                // ...state,
                 // we might had chaged the id or added new attribute in the state and added it in the newstate
-                isLogIn:true,
+                // id:Math.random().toString(32).slice(2),
                 // we might also get some new data from the action (action.payload)
                 newData:action.payload
             }
@@ -34,4 +21,5 @@ function Authreducer(state = initialState, action) {
            return   state    
     }
 }
-export default Authreducer
+
+export default reducerForStudents

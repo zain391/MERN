@@ -1,30 +1,18 @@
-import React from 'react'
 let initialState = {
-    stdName: "random1",
-    stdRoll: "123",
-    stdClass: "Class 1",
-    stdBatch: "7th"
+  islogin:true,
+  userName:"",
+  email:"random123@gmail.com",
+
 }
-function StudentReducer(state = initialState, action) {
-    // return (
-    //     <div>StudentReducer</div>
-    // )
 
-    // first      
-    // switch(action){
-    //     case value:
-    //         break;
-    //     default:
-    //         state    
-    // }
-
+function reducerForAuth(state = initialState, action){
     switch(action.type){
-        case "ADD_STUDENT":
+        case "ISLOGIN":
             // all the logic will be here 
             let newStateAfterActionHappens={
                 ...state,
                 // we might had chaged the id or added new attribute in the state and added it in the newstate
-                id:Math.random().toString(32).slice(2),
+                isLogIn:true,
                 // we might also get some new data from the action (action.payload)
                 newData:action.payload
             }
@@ -33,5 +21,4 @@ function StudentReducer(state = initialState, action) {
            return   state    
     }
 }
-
-export default StudentReducer
+export default reducerForAuth;
