@@ -1,25 +1,26 @@
-import React, { useState } from 'react';
+import React from 'react';
 import "./App.css"
-import Students from './components/Students';
-import {useSelector,useDispatch} from "react-redux"
-import StudentsAction from './reduxConfig/actionsForReducer/StudentsAction';
+import {getDatabase as db,ref, set } from "firebase/database"
 function App() {
- const store=useSelector(store =>store);
- const dispatch=useDispatch();
- console.log(store);
- const ctahandler=()=>{
-  let updateData={
-    stdName: "zain",
-    stdRoll: "bsf",
-    stdClass: "Bs IT",
-    stdBatch: "7th"
+ 
+  const ctaHandler=()=>{
+    const user={
+      name:"zain",
+      roll:"bsf19"
+    }
+   try{
+    let res=db.collection("users").add(user)
+    console.log(res,"res");
+   }
+   catch(error){
+    console.log("error",error);
+   }
   }
-  dispatch(StudentsAction(updateData))
- }
+  console.log(db);
   return (
     <div className="App">
-    <button onClick={ctahandler}>update data</button>
-     <Students/>
+      <p>working well</p>
+      <button onClick={ctaHandler}>click to write data</button>
     </div>
   );
 
