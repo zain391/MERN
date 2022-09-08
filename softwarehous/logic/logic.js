@@ -1,8 +1,12 @@
-let randoArray=[54,67,89,8,4,3,2,23,4,653,5,56,4];
+let array1=[23,45];
+let num1=0;
+let num2=0;
 let sortedArray=[];
-for(let i=0; i<randoArray.length; i++){
-    if(randoArray[i]>randoArray[i+1]){
-        sortedArray.unshift(randoArray[i])
+for(let i=0; i<array1.length; i++){
+    if(array1[i]<array1[i+1]){
+        num1=array1[i];
+        sortedArray.unshift(num1)
     }
 }
+
 console.log(sortedArray);
