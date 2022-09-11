@@ -1,6 +1,7 @@
-// we have imported redux we have to createstore using creatstore function
-const redux=require(redux)
 
+// we have imported redux we have to createstore using creatstore function
+const redux=require("redux")
+const createStore=redux.createStore;
 // first we will create a state 
 const initialState={
     numberOfCakes:10
@@ -14,7 +15,7 @@ function orderCake(){
     // now we are going to create an action (action type)
     return {
         type:ORDER_CAKE,
-        quantity:1
+        // quantity:1
     }
 }
 
@@ -36,3 +37,30 @@ const reducer=(state=initialState, action)=>{
            return  initialState 
     }
 }
+
+
+// now we are going to create store 
+const store =createStore(reducer);
+
+
+// there are some by default functions we get when we create sotre using the createstore function 
+// store.getState()
+// store.subcribe()
+// store.unsubscribe()
+// store.dispatch(action)
+
+console.log("previous state",store.getState());
+
+// store.subscribe(()=>{
+//     console.log("updated state state",store.getState()); 
+// })
+
+const unsubscribe=store.subscribe(()=>{
+    console.log("updated state state",store.getState()); 
+})
+
+store.dispatch(orderCake())
+store.dispatch(orderCake())
+store.dispatch(orderCake())
+
+unsubscribe()
