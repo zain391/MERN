@@ -1,19 +1,13 @@
-let array1=[23,45];
-let num1=0;
-let num2=0;
-let sortedArray=[];
-for(let i=0; i<array1.length; i++){
-    if(i=0){
-        for(let j=1; j<array1.length;j++){
-            // if(array1[i]<array1[j]){
-            //     console.log("sdklafjdlsk")
-            //     sortedArray.unshift(array1[i])
-            // }
-            // else{
-            //     sortedArray.unshift(array1[j])
-            // }
-        }
-    }
-}
+// var Arr = [1, 7, 2, 8, 3, 4, 5, 0, 9,-45];
 
-console.log(sortedArray);
+// for (var i = 1; i < Arr.length; i++)
+//     for (var j = 0; j < i; j++)
+//         if (Arr[i] < Arr[j]) {
+//           var x = Arr[i];
+//           Arr[i] = Arr[j];
+//           Arr[j] = x;
+//         }
+
+// console.log(Arr);
+
+
