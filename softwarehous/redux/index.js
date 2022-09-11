@@ -64,3 +64,6 @@ store.dispatch(orderCake())
 store.dispatch(orderCake())
 
 unsubscribe()
+
+// first created the createStore variable then equaled it to the redux.createStorethen created a store using the createStore and passed reducer (function with switch statement ) 
+// to store , then subcribed the store and loged the getstate in subcribe function , then alled the dispatch to run the action and finally unsubscribed the store "
